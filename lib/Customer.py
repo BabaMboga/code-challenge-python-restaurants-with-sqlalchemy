@@ -30,3 +30,11 @@ class Customer(Base):
     @classmethod
     def all(cls):
         return session.query(cls).all()
+    
+    @classmethod
+    def find_by_name(cls, name):
+        return session.query(cls).filter_by(given_name=name).first()
+    
+    @classmethod
+    def find_all_by_given_name(cls, name):
+        return session.query(cl).filter_by(given_name=name).all()
