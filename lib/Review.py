@@ -18,6 +18,15 @@ class Review(Base):
         self.restaurant = restaurant
         self.rating = rating
 
+    def rating(self):
+        return self.rating
+    
+    def customer(self):
+        return self.customer
+    
+    def restaurant(self):
+        return self.restaurant
+
     @classmethod
     def all(cls):
         return session.query(cls).all()

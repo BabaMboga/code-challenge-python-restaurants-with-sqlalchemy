@@ -10,6 +10,9 @@ class Restaurant(Base):
     def __init__ (self, name):
         self.name = name
 
+    def name(self):
+        return self.name
+
     def reviews(self):
         return [review for review in self.reviews]
     
