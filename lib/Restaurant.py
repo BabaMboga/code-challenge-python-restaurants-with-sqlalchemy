@@ -1,10 +1,20 @@
 from sqlalchemy import Column, Integer, String
 from base import Base, engine, session
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+#configuring the database connection
+engine = create_engine('sqlite:///database.db')
+Session = sessionmaker(bind=engine)
+session = Session()
+
+Base = declarative_base()
 
 class Restaurant(Base):
     __tablename__ = 'restaurants'
 
-    id = Column(Integer, primary_keys=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String)
 
     def __init__ (self, name):

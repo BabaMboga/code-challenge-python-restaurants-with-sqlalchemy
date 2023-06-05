@@ -2,6 +2,16 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from base import Base, engine, session
 from Review import Review
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+#configuring the database connection
+engine = create_engine('sqlite:///database.db')
+Session = sessionmaker(bind=engine)
+session = Session()
+
+Base = declarative_base()
 
 class Customer(Base):
     __tablename__ = 'customers'
